@@ -3,7 +3,9 @@ version: '3'
 services:
   # PHP 웹 서버 설정
   web:
-    image: php:8.2-apache
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile
     ports:
       - "80:80"
     volumes:
