@@ -97,3 +97,47 @@
 * **Docker, Docker Compose**:
   * **장점:** 일관된 개발 및 배포 환경, 마이크로서비스 아키텍처 지원, 확장성, 이식성, 격리된 환경
   * **활용 계획:** 각 서비스 (라이믹스 CMS, Node.js, MQTT 브로커, 데이터베이스 등) 컨테이너화, Docker Compose를 통한 서비스 오케스트레이션, 개발 및 배포 프로세스 간소화
+
+## 개발 환경 설정
+
+### 필요 조건
+* Docker 및 Docker Compose 설치
+* Git 설치
+
+### 로컬 개발 환경 설정 방법
+1. 저장소 클론
+   ```bash
+   git clone https://github.com/nCrom/smart_farm.git
+   cd smart_farm
+   ```
+
+2. Docker 컨테이너 실행
+   ```bash
+   docker-compose up -d
+   ```
+
+3. 웹사이트 접속
+   * 메인 웹사이트: http://localhost
+   * phpMyAdmin: http://localhost:8080 (사용자: smartfarm, 비밀번호: smartfarm)
+
+4. 개발 워크플로우
+   * 코드 수정 후 Git을 통해 변경사항 커밋 및 푸시
+   * Docker 컨테이너는 볼륨 마운트를 통해 로컬 파일 변경사항을 자동으로 반영
+
+### 환경 변수
+* MariaDB 환경 변수:
+  * MYSQL_ROOT_PASSWORD: rootpassword
+  * MYSQL_DATABASE: smartfarm
+  * MYSQL_USER: smartfarm
+  * MYSQL_PASSWORD: smartfarm
+
+### 접속 정보
+* 웹 서버: http://localhost
+* phpMyAdmin: http://localhost:8080
+  * 서버: db
+  * 사용자: smartfarm
+  * 비밀번호: smartfarm
+* MariaDB: localhost:13306
+  * 사용자: smartfarm
+  * 비밀번호: smartfarm
+  * 데이터베이스: smartfarm

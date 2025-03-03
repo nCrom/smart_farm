@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  # PHP 웹 서버 설정
+  web:
+    image: php:8.2-apache
+    ports:
+      - "80:80"
+    volumes:
+      - ./www:/var/www/html
+    depends_on:
+      - db
+    restart: always
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html
+
+  # MariaDB 데이터베이스 설정
+  db:
+    image: mariadb:10.6
+    ports:
+      - "13306:3306"
+    volumes:
+      - ./db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: smartfarm
+      MYSQL_USER: smartfarm
+      MYSQL_PASSWORD: smartfarm
+
+  # phpMyAdmin 설정
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    restart: always
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: rootpassword
+
+volumes:
+  db_data:
