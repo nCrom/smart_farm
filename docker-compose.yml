@@ -6,6 +6,7 @@ services:
     build:
       context: ./docker/php
       dockerfile: Dockerfile
+    container_name: smart_farm
     ports:
       - "80:80"
     volumes:
@@ -19,6 +20,7 @@ services:
   # MariaDB 데이터베이스 설정
   db:
     image: mariadb:10.6
+    container_name: smart_farm_db
     ports:
       - "13306:3306"
     volumes:
@@ -33,6 +35,7 @@ services:
   # phpMyAdmin 설정
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
+    container_name: smart_farm_phpmyadmin
     ports:
       - "8080:80"
     depends_on:
