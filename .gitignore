@@ -10,3 +10,35 @@
 # 임시 파일 제외
 *.tmp
 *.temp
+
+# 라이믹스 CMS 관련 제외 파일
+/www/files/
+/www/files_cache/
+/www/files_tmp/
+/www/files_exported/
+/www/files_tar/
+/www/files_trash/
+/www/modules/ckeditor/ckfinder/
+
+# 라이믹스 설정 파일
+/www/config/config.user.inc.php
+/www/config/config.db.inc.php
+/www/config/config.cache.php
+/www/config/install.config.php
+
+# 라이믹스 캐시 관련
+/www/common/cache/
+/www/common/tpl/*.compiled.php
+/www/common/lang/compiled/
+/www/common/js/rhymix_compiled.js
+/www/common/css/rhymix_compiled.css
+
+# 라이믹스 세션 데이터
+/www/common/session/
+
+# 업로드된 미디어 파일
+/www/uploads/
+
+# 기타 제외 파일
+.DS_Store
+Thumbs.db
